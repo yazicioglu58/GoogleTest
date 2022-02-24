@@ -28,11 +28,15 @@ namespace GoogleTest
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/");
+
+            int expectedNumberOfElements = 44;
+
+            IList<IWebElement> availableElements = driver.FindElements(By.XPath("//div[@id='content']//a"));
+
+            Console.WriteLine("Number of elements: " + availableElements.Count);
+
+            Assert.IsTrue(availableElements.Count.Equals(expectedNumberOfElements));
             
-
-
- 
-
             CloseDriver();
         }
 
@@ -44,7 +48,6 @@ namespace GoogleTest
                 _ = driver == null;
             }           
         }
-
-       
+              
     }
 }
