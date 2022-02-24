@@ -34,7 +34,6 @@ namespace GoogleTest
             searchField.SendKeys(item + Keys.Enter);
 
             IList<IWebElement> list1 = driver.FindElements(By.XPath("//h3[@class='LC20lb MBeuO DKV0Md']"));
-            List<string> list2 = new List<string>();
             string firstItem = list1[0].Text;
             Console.WriteLine(firstItem);
 
