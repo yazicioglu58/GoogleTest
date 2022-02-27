@@ -33,10 +33,32 @@ namespace GoogleTest
 
             IList<IWebElement> availableElements = driver.FindElements(By.XPath("//div[@id='content']//a"));
 
-           
+            IList<string> elementText = new List<string>();
+
+            foreach(IWebElement ele in availableElements)
+            {
+                elementText.Add(ele.Text);
+                Console.WriteLine(ele.Text);
+            }
+
+
+            // string elementTextOnMainPage4 = availableElements[4].Text;
+            //IWebElement ele4 = driver.FindElement(By.XPath("dfd"));
+
+            //Assert.AreEqual(elementTextOnMainPage4, ele4.Text);
+
+
+
             Console.WriteLine("Number of elements: " + availableElements.Count);
 
             Assert.IsTrue(availableElements.Count.Equals(expectedNumberOfElements));
+            
+            availableElements[4].Click();
+
+           
+
+          
+
             Thread.Sleep(3000);
 
             CloseDriver();
